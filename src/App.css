@@ -1,38 +1,348 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  /* min-height: 100vh;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+    min-height: 100vh;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-root {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;    /* full viewport height */
+}
+/* Main App Card */
+.app-container {
+ max-width: 520px;   /* max width instead of fixed width */
+  width: 100%;        /* allow it to shrink on smaller screens */
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  
+  margin: auto;       /* center horizontally */
+  flex-grow: 0;       /* don't stretch vertically */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-header img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.app-header h1 {
+  color: #185a9d;
+  font-size: 28px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.filters button {
+  flex: 1;
+  margin: 0 4px;
+  padding: 8px 0;
+  border: none;
+  border-radius: 20px;
+  background: #edf2f7;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.filters button.active {
+  background: #43cea2;
+  color: #fff;
+}
+
+.filters button:hover {
+  background: #c6f6d5;
+}
+
+/* Form */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.task-form button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #185a9d;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-form button:hover {
+  background: #134e86;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  max-height: 320px;       /* 👈 card scroll height */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+/* scrollbar styling (optional but sexy) */
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: #43cea2;
+  border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: #edf2f7;
+}
+
+/* Task Item */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: #f8fafc;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.task-item:hover {
+  background: #edf2f7;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-title {
+  font-size: 16px;
+  color: #2d3748;
+}
+
+/* Status Dropdown */
+.status-select {
+  padding: 6px 10px;
+  border-radius: 14px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.status-select.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-select.completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-select.onHold {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #ef4444;
+}
+
+.delete-btn:hover {
+  color: #b91c1c;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.empty-state img {
+  width: 180px;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: #718096;
+}
+
+.editable {
+  cursor: pointer;
+}
+
+.editable:hover {
+  text-decoration: underline;
+}
+
+.edit-input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e0;
+  font-size: 14px;
+}
+
+.save-btn {
+  background: #43cea2;
+  border: none;
   color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.cancel-btn {
+  background: #e2e8f0;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* =========================
+   📱 Mobile Responsiveness
+   ========================= */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .app-container {
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  /* Header */
+  .app-header img {
+    width: 90px;
+  }
+
+  .app-header h1 {
+    font-size: 22px;
+  }
+
+  /* Filters */
+  .filters {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    padding: 10px 0;
+    z-index: 10;
+  }
+
+  .filters button {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  /* Form */
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form button {
+    width: 100%;
+  }
+
+  /* Task List */
+  .task-list {
+    max-height: 55vh;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  /* Task Item */
+  .task-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .task-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Inline edit input */
+  .edit-input {
+    width: 100%;
+  }
+
+  /* Status dropdown */
+  .status-select {
+    width: fit-content;
+  }
+
+  /* Action buttons */
+  .save-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+  }
+
+  /* Empty state */
+  .empty-state img {
+    width: 140px;
   }
 }

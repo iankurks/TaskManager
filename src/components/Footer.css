@@ -1,0 +1,44 @@
+/* ------------------------- */
+.app-footer {
+  margin-top: 30px;
+  padding: 16px 0;
+  margin-top: auto;
+  background: #000;          /* 👈 black background */
+  color: #fff;               /* 👈 white text */
+  text-align: center;
+  font-size: 13px;
+  width: 100vw;    
+}
+
+.app-footer p {
+  margin: 4px 0;
+  color: #fff;
+}
+
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #fff;            /* slightly lighter on hover */
+}
+.contact-links a:hover {
+  text-decoration: underline;
+  color: #000000;            /* slightly lighter on hover */
+}
+.contact-links a{
+  color: #000000;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer-content p {
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}

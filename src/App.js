@@ -1,23 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import "./App.css";
+
+import Login from "./components/Login";
+import Register from "./components/Register";
+import TaskManager from "./components/TaskManager";
+
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 function App() {
+  const [user, setUser] = useState(localStorage.getItem("userEmail"));
+
+  const handleLogin = (email) => {
+    localStorage.setItem("userEmail", email);
+    setUser(email);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("userEmail");
+    setUser(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-root">
+    <BrowserRouter>
+      <Routes>
+        {/* Login */}
+        <Route
+          path="/"
+          element={
+            user ? <Navigate to="/home" /> : <Login onLogin={handleLogin} />
+          }
+        />
+
+        {/* Register */}
+        <Route
+          path="/register"
+          element={
+            user ? <Navigate to="/home" /> : <Register />
+          }
+        />
+
+        {/* Task Manager */}
+        <Route
+          path="/home"
+          element={
+            user ? (
+              <TaskManager user={user} onLogout={handleLogout} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
     </div>
   );
 }

@@ -1,0 +1,65 @@
+/* Login Wrapper */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+
+/* Login Card */
+.login-card {
+  width: 420px !important;
+}
+
+/* Subtitle */
+.login-subtitle {
+  color: #718096;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* Error */
+.error-text {
+  margin-top: 12px;
+  text-align: center;
+  color: #e53e3e;
+  font-size: 14px;
+}
+
+/* Link Button */
+.link-btn {
+  background: transparent;
+  border: none;
+  color: #185a9d;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;   /* 👈 THIS is the key */
+  gap: 14px;
+}
+
+.task-form input {
+  width: 100%;
+}
+
+.task-form button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .login-card {
+    width: 100%;
+  }
+}
