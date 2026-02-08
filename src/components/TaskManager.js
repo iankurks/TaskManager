@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 
-const API = "http://localhost:5000/api";
+// const API = "http://localhost:5000/api";
+const API = "https://taskmanagerbackend-production-7f1c.up.railway.app/api"
+
 
 export default function TaskManager({ user, onLogout }) {
     const [tasks, setTasks] = useState([]);

@@ -4,7 +4,9 @@ import "./Login.css";
 import taskImage from "../images/header.png";
 import {Link, useNavigate } from "react-router-dom";
 
-const API = "http://localhost:5000/auth";
+// const API = "http://localhost:5000/auth";
+const API = "https://taskmanagerbackend-production-7f1c.up.railway.app/auth"
+
 
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
