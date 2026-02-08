@@ -7,6 +7,10 @@ const router = express.Router();
 // Allowed status values
 const VALID_STATUS = ["pending", "completed", "onHold"];
 
+
+router.get("/test", async (req, res) => {
+    res.json("API is working");
+});
 // ---------- Get all tasks ----------
 router.get("/tasks", async (req, res) => {
   try {
