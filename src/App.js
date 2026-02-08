@@ -5,7 +5,6 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import TaskManager from "./components/TaskManager";
-
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
