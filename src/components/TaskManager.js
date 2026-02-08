@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
-import  NoData from"../images/no_data.png"
+
 const API = "http://localhost:5000/api";
 
 export default function TaskManager({ user, onLogout }) {
@@ -16,7 +16,7 @@ export default function TaskManager({ user, onLogout }) {
         const userEmail = localStorage.getItem("userEmail")
 
         
-        const tasksList = res.data.find((e) => e.email == userEmail)?.tasks || []
+        const tasksList = res.data.find((e) => e.email === userEmail)?.tasks || []
 
         setTasks(tasksList);
     };

@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import taskImage from "../images/header.png";
-import Footer from "./Footer";
+
 
 const API = "http://localhost:5000/auth";
 
 export default function Register({ onRegister }) {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

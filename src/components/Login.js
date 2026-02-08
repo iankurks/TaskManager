@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Login.css";
 import taskImage from "../images/header.png";
 import {Link, useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+
 const API = "http://localhost:5000/auth";
 
 export default function Login({ onLogin }) {
