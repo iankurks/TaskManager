@@ -11,7 +11,8 @@ dotenv.config();
 const app = express();
 // ✅ CORS — MUST be before routes
 app.use(cors({
-  origin: "http://localhost:3000",
+  // origin: "http://localhost:3000",
+  origin: "https://taskmanagerfrontend-production.up.railway.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type"],
   credentials: true
